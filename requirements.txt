@@ -1,0 +1,5 @@
+asyncio
+argparse
+pyfiglet
+hashlib
+bleak
