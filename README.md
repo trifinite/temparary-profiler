@@ -17,6 +17,7 @@ The temparary tool can impersonate/emulate a Tesla car. For the tool to imperson
 The required information consist of:
 * an Extended Inquiry Response dataset, that encodes properties of an iBeacon
 * a Scan Response thar encodes the Vehicle ID (S<8 bytes that are hex-encoded>C)
+* the Bluetooth device address (MAC-address)
 * the vehicles public key
 
 The temparary-profiler tool is able to retrieve this information from the actual vehicle.
