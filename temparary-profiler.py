@@ -37,7 +37,7 @@ async def run():
                 'vehicleIdentifier': d.name,
                 'vehicleBluetoothAddress': d.address,
                 'scanExtendedInquiryResponse': eir,
-                'scanResponse': '030222111309536233313764363338666563393432646143',
+                'scanResponse': '030222111309'+ getHexString(bytes(d.name, 'utf-8')),
                 'evilWhitelist': '001f82011c080312060a042486826412060a04536019fd12060a041af18d6e1807',
             }
             
@@ -68,7 +68,7 @@ async def run():
 
             profile['vehiclePubkeyResponse'] = pubkeyResponse
 
-            if (len(args.vin)==17):
+            if (args.vin is not None and len(args.vin)==17):
                 profile['vehicleVIN'] = args.vin.upper()
 
             await client.disconnect()
@@ -94,7 +94,7 @@ print("Version: "+__version__+"\n")
 
 
 args = parser.parse_args()
-if (len(args.vin)==17):
+if (args.vin is not None and len(args.vin)==17):
     vin = args.vin
     filterVIN = vin.upper()
     b = bytes(filterVIN, 'utf-8')
